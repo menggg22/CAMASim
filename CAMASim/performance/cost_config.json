@@ -1,0 +1,114 @@
+{
+    "peripheral_cost": {
+        "adder": {"latency": 244, "energy": 1.33E-15}, 
+        "register": {"latency": 488, "energy": 4.5E-15},
+        "comparator": {"latency": 244, "energy": 4.52E-16 },
+        "decoder": {"latency": 244, "energy": 2.898E-14 },
+        "encoder": {"latency": 244, "energy": 2.898E-14}
+    },
+    "array_cost": {
+        "TCAM_16": {
+            "subarray": {"latency": 860, "energy": 3.20E-13}, 
+            "interconnect": {"latency": 98, "energy": 1.19E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 5.88E-12}
+        },
+        "TCAM_32": {
+            "subarray": {"latency": 1200, "energy": 6.39E-13},
+            "interconnect": {"latency": 124, "energy": 1.54E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000,  "energy": 1.18E-11}
+        },
+
+        "TCAM_64": {
+            "subarray": {"latency": 2600, "energy": 1.28E-12},
+            "interconnect": {"latency": 175, "energy": 2.25E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 2.35E-11}
+        },
+
+        "TCAM_128": {
+            "subarray": {"latency": 4200, "energy": 2.56E-12},
+            "interconnect": {"latency": 277, "energy": 3.67E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 4.70E-11}
+        },
+
+        "TCAM_256": {
+            "subarray": {"latency": 7500, "energy": 5.12E-12},
+            "interconnect": {"latency": 472, "energy": 6.52E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 9.41E-11}
+        },
+
+        "MCAM2b_16": {
+            "subarray": {"latency": 1140, "energy": 4.32E-13},
+            "interconnect": {"latency": 98, "energy": 1.19E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 5.79E-12}
+        },
+
+        "MCAM2b_32": {
+            "subarray": {"latency": 1690, "energy": 8.63E-13},
+            "interconnect": {"latency": 124, "energy": 1.54E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 1.16E-11}
+        },
+
+        "MCAM2b_64": {
+            "subarray": {"latency": 3500, "energy": 1.73E-12},
+            "interconnect": {"latency": 175, "energy": 2.25E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 2.32E-11}
+        },
+
+        "MCAM2b_128": {
+            "subarray": {"latency": 5800, "energy": 3.45E-12},
+            "interconnect": {"latency": 277, "energy": 3.67E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 4.63E-11}
+        },
+
+        "MCAM2b_256": {
+            "subarray": {"latency": 7500, "energy": 6.91E-12},
+            "interconnect": {"latency": 472, "energy": 6.52E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 9.26E-11}
+        },
+
+        "MCAM3b_16": {
+            "subarray": {"latency": 1140, "energy": 4.61E-13},
+            "interconnect": {"latency": 98, "energy": 1.19E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 7.24E-12}
+        },
+
+        "MCAM3b_32": {
+            "subarray": {"latency": 1690, "energy": 9.21E-13},
+            "interconnect": {"latency": 124, "energy": 1.54E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 1.45E-11}
+        },
+
+        "MCAM3b_64": {
+            "subarray": {"latency": 3500, "energy": 1.84E-12},
+            "interconnect": {"latency": 175, "energy": 2.25E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 2.89E-11}
+        },
+
+        "MCAM3b_128": {
+            "subarray": {"latency": 5800, "energy": 3.68E-12},
+            "interconnect": {"latency": 277, "energy": 3.67E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 5.79E-11}
+        },
+
+        "MCAM3b_256": {
+            "subarray": {"latency": 7500, "energy": 7.37E-12},
+            "interconnect": {"latency": 472, "energy": 6.52E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 1.16E-10}
+        }
+    }
+}
