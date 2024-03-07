@@ -1,0 +1,3 @@
+[submodule "CAMASim/performance/module/EVACAM"]
+	path = CAMASim/performance/module/EVACAM
+	url = https://github.com/Andyliu92/EvaCAM-for-CAMASim

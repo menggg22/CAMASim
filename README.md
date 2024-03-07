@@ -1,5 +1,5 @@
 # 🛠️ CAMASim
-A comprehensive tool for evaluating CAM-based CIM accelerators  for both chip-level performance and application accuracy with hardware constraints.
+A comprehensive tool for evaluating CAM-based CIM accelerators for both chip-level performance and application accuracy with hardware constraints.
 
 CAMASim is a Easy-to-use, Modular and Extendible package of simulating CAM-based CIM accelerators along with lots of core components layers which can be used to easily build custom search schemes. You can use it with any CAM-compatible applications with cam.write() and cam.query().
 
@@ -56,6 +56,15 @@ def simCAM(CAM_Data, CAM_Query):
 - CAMASim/arch	Architecture estimator.
 - examples/	Examples for CAM-related applications
 
+## EVACAM Integration
+### What is EVACAM
+Eva-CAM is a circuit/architecture-level modeling and evaluation tool for content addressable memories (CAMs) that can project the area, timing, dynamic energy, and leakage power of NVM-based CAMs. It is developed by Liu Liu at University of Notre Dame. Please go to [EVACAM github repository](https://github.com/eva-cam/EvaCAM) for more detailed information.
+
+### Why CAMASim and EVACAM can Work Together?
+CAMASim is an chip-level performance and application accuracy simulator while EVACAM gives detailed hardware costs, therefore the two simulators are perfectly  complementary to each other and can work together to give better results. When EVACAM is enabled, CAMASim will pass the CAM configuration it received to EVACAM, and read from EVACAM's performance evaluation on power and latency for whole-chip performance evaluation. If EVACAM is not enabled, CAMASim will read from pre-defined performance data for limited CAM configurations. The pre-defined performance data is stored in `CAMASim/performance/cost_config.json`
+
+### How to enable EVACAM?
+EVACAM resides as a git submodule in CAMASim. For better integration, we forked and made slight changes to the original version of CAMASim. Our version of EVACAM is at [this repo](https://github.com/Andyliu92/EvaCAM-for-CAMASim). 
 
 ## Citation
 If you want to learn more about the CAM-based accelerators, please refer to the following manuscript:
