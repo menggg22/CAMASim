@@ -1,6 +1,6 @@
-from EvaCAMX.function.module.distance import *
-from EvaCAMX.function.module.sensing import *
-from EvaCAMX.function.module.merge import *
+from CAMASim.function.module.distance import *
+from CAMASim.function.module.sensing import *
+from CAMASim.function.module.merge import *
 from collections import defaultdict
 
 class CAMSearch:

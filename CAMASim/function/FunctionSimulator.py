@@ -1,11 +1,11 @@
 import numpy as np
 import math
 from collections import Counter, defaultdict
-from EvaCAMX.function.quantize import quantize
-from EvaCAMX.function.convert import convertToPhys
-from EvaCAMX.function.mapping import mapping
-from EvaCAMX.function.search import CAMSearch
-from EvaCAMX.function.writeNoise import writeNoise
+from CAMASim.function.quantize import quantize
+from CAMASim.function.convert import convertToPhys
+from CAMASim.function.mapping import mapping
+from CAMASim.function.search import CAMSearch
+from CAMASim.function.writeNoise import writeNoise
 
 class FunctionSimulator:
     def __init__(self, array_config, query_config, cell_config, noise_config):

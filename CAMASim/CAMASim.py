@@ -1,14 +1,14 @@
-# The EvaCAMX class is designed to facilitate operations and performance evaluation of CAM-based accelerators systems.
+# The CAMASim class is designed to facilitate operations and performance evaluation of CAM-based accelerators systems.
 # It provides functionalities for both function simulation and performance evaluatiob based on user-defined configurations.
 
-from EvaCAMX.arch.ArchEstimator import ArchEstimator
-from EvaCAMX.function.FunctionSimulator import FunctionSimulator
-from EvaCAMX.performance.PerformanceEvaluator import PerformanceEvaluator
+from CAMASim.arch.ArchEstimator import ArchEstimator
+from CAMASim.function.FunctionSimulator import FunctionSimulator
+from CAMASim.performance.PerformanceEvaluator import PerformanceEvaluator
 
 
-class EvaCAMX:
+class CAMASim:
     def __init__(self, config):
-        # Initialize the EvaCAMX class with configuration settings.
+        # Initialize the CAMASim class with configuration settings.
 
         # Extract configuration settings
         query_config = config["query"]

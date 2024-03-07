@@ -1,7 +1,7 @@
 # 🛠️ CAMASim
 A comprehensive tool for evaluating CAM-based CIM accelerators  for both chip-level performance and application accuracy with hardware constraints.
 
-CAMASim is a Easy-to-use, Modular and Extendible package of simulating CAM-based CIM accelerators along with lots of core components layers which can be used to easily build custom search schemes.You can use it with any CAM-compatible applications with cam.write() and cam.query() .
+CAMASim is a Easy-to-use, Modular and Extendible package of simulating CAM-based CIM accelerators along with lots of core components layers which can be used to easily build custom search schemes. You can use it with any CAM-compatible applications with cam.write() and cam.query().
 
 ## Quick Start
 ### Get the tool from GitHub

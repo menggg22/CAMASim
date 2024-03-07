@@ -1,6 +1,6 @@
-import EvaCAMX.function.module.rram_noise as rram_noise
+import CAMASim.function.module.rram_noise as rram_noise
 import numpy as np
-from EvaCAMX.function.quantize import quantize_tensor
+from CAMASim.function.quantize import quantize_tensor
 
 
 class writeNoise:

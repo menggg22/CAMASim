@@ -20,7 +20,7 @@ def get_component_cost():
 
 def get_EVACAM_cost(array_config: dict, cell_config: dict):
     """
-    This function uses the EVACAMX config to run EVACAM performance valuation and update the cost_config.json file
+    This function uses the CAMASim config to run EVACAM performance valuation and update the cost_config.json file
     The cost in cost_config.json is now for a single CAM array.
     """
     scriptPath = Path(__file__)
@@ -195,7 +195,7 @@ def __update_cost_config() -> dict:
         for item in costs.keys()
     }
 
-    costs = __convert2EVACAMXFormatCost(costs)
+    costs = __convert2CAMASimFormatCost(costs)
 
     workingDir = scriptPath.parent
     with open(workingDir.joinpath("EVACAM_cost.json"), mode="w+") as fout:
@@ -204,7 +204,7 @@ def __update_cost_config() -> dict:
     return costs
 
 
-def __convert2EVACAMXFormatCost(cost: dict) -> dict:
+def __convert2CAMASimFormatCost(cost: dict) -> dict:
     latencyConvertDict = {
         "search latency": "subarray",
         # "?": "interconnect",
