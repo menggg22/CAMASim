@@ -64,7 +64,26 @@ Eva-CAM is a circuit/architecture-level modeling and evaluation tool for content
 CAMASim is an chip-level performance and application accuracy simulator while EVACAM gives detailed hardware costs, therefore the two simulators are perfectly  complementary to each other and can work together to give better results. When EVACAM is enabled, CAMASim will pass the CAM configuration it received to EVACAM, and read from EVACAM's performance evaluation on power and latency for whole-chip performance evaluation. If EVACAM is not enabled, CAMASim will read from pre-defined performance data for limited CAM configurations. The pre-defined performance data is stored in `CAMASim/performance/cost_config.json`
 
 ### How to enable EVACAM?
-EVACAM resides as a git submodule in CAMASim. For better integration, we forked and made slight changes to the original version of CAMASim. Our version of EVACAM is at [this repo](https://github.com/Andyliu92/EvaCAM-for-CAMASim). 
+EVACAM is integrated as a git submodule within CAMASim to enhance functionality. To align with CAMASim's requirements, we've forked and slightly modified the original EVACAM, with our adapted version available at [this repo](https://github.com/Andyliu92/EvaCAM-for-CAMASim).
+
+```sh
+git submodule init
+git submodule update
+```
+
+To activate EVACAM's features during simulations in CAMASim, include "useEVACAMCost": true within the array section of your CAM simulation's configuration file. For instance, in the decision tree example (`example/DecisionTree/cam_config.json`), adjust the array section as follows:
+
+```json
+    "array":{
+        "row": 128,
+        "col": 128,
+        "sensing": "exact",
+        "cell": "ACAM",
+        "bit": 3,
+        "useEVACAMCost": true
+    },
+```
+This setup allows CAMASim to utilize EVACAM's evaluations of latency and power for more accurate simulation outcomes.
 
 ## Citation
 If you want to learn more about the CAM-based accelerators, please refer to the following manuscript:
