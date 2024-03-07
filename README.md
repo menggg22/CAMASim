@@ -9,16 +9,21 @@ CAMASim is a Easy-to-use, Modular and Extendible package of simulating CAM-based
 git clone https://github.com/menggg22/CAMASim.git
 ```
 ### Dependencies
+The dependencies required by CAMASim is listed in `requirements.txt`. Please run `pip install -r ./requirements.txt` to install these dependencies.
 
 ### Run examples
-The examples/ folder contains example on HDMANN.
+#### Decision Tree Inference on CAM
+The example/DecisionTree directory contains scripts for converting a decision tree into CAM format and performing inference with CAM, using the iris dataset. Run the command below to see performance metrics and simulation results from CAMASim:
+```sh
+python example/DecisionTree/example.py
+```
 
 ## Integrate in your own applications
 
 - Step 1: Prepare stored data *CAM_Data* and query data *CAM_Query* in your application
 
 - Step 2: modify config file *cam_config* and load config
-- Step 3: Initialize *CAMASIM* class with config
+- Step 3: Initialize *CAMASim* class with config
 - Step 4: Simulate **write** opeartion on *CAM_Data* 
 - Step 5: simulate **query** opeartion *CAM_Query* 
 
@@ -44,13 +49,12 @@ def simCAM(CAM_Data, CAM_Query):
     CAM_pred_ids, _, _ = cam.query(CAM_Query) # Accuracy Evaluation
 ```
 
-
 ## File Description
-- camasim/ 	Library source files with function simulator, layer, and device definition
-- camasim/function	Function simulator and basic modules.
-- camsim/performance	Performance evaluator.
-- camsim/arch	Architecture estimator.
-- examples/	Example for
+- CAMASim/ 	Library source files with function simulator, layer, and device definition
+- CAMASim/function	Function simulator and basic modules.
+- CAMASim/performance	Performance evaluator.
+- CAMASim/arch	Architecture estimator.
+- examples/	Examples for CAM-related applications
 
 
 ## Citation
@@ -61,7 +65,7 @@ If you want to learn more about the CAM-based accelerators, please refer to the 
 If you find this code useful in your work, please cite it using the following BibTeX:
 
 ```
-@inproceedings{li2024camasim,
+@inproceedings{li2024CAMASim,
     title     = {CAMASim: A Comprehensive Simulation Framework for Content-Addressable Memory based Accelerators},
     author    = {Li, Mengyuan and Liu, Shiyi and Sharifi, Mohammad Mehdi and Hu, Xiaobo Sharon},
     journal= {arXiv preprint arXiv:2202.09433},
