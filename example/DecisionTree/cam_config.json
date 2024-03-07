@@ -1,0 +1,43 @@
+{
+    "query": {
+       "distance": "range", 
+       "searchScheme": "exact",
+       "parameter": 20,
+       "ifAddWriteNoise": 1,
+       "FuncSim": 1,
+       "PerfEval": 1,
+       "bit": 3
+    },
+
+    "arch": {
+        "SubarraysPerArray": 4,
+        "ArraysPerMat": 4,
+        "MatsPerBank": 4,
+        "Merge": "exact"
+    },
+
+    "array":{
+        "row": 128,
+        "col": 128,
+        "sensing": "exact",
+        "cell": "ACAM",
+        "bit": 3
+    },
+
+    "cell":{
+        "type": "ACAM",
+        "device": "RRAM", 
+        "design": "6T2M",
+        "representation": "voltage",
+        "writeNoise": {
+            "quantization": {
+                "hasQuantNoise": 0,
+                "quantBits": 8
+            },
+            "variation": {
+                "hasVariation": 1,
+                "type": "gaussian"
+            }
+        }
+    }
+}

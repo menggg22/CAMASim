@@ -21,7 +21,7 @@ class CAMSearch:
         self.searchScheme = query_config['searchScheme']  # "exact"
         self.searchParameter = query_config['parameter']  # 20
         self.sensing = array_config['sensing']  # exact, best, threshold
-        self.sensinglimit = array_config['sensingLimit']
+        self.sensinglimit = array_config.get('sensingLimit', 0)
 
     def define_search_area(self, numRowCAMs, numColCAMs):
         """

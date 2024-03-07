@@ -96,7 +96,7 @@ class PerformanceEvaluator:
         self.num_mat = self.cam_arch["mat"]["size"]
         self.num_bank = self.cam_arch["bank"]["size"]
 
-        if self.array_config["useEVACAMCost"]:
+        if self.array_config.get("useEVACAMCost", False):
             self.array_cost = get_EVACAM_cost(self.array_config, self.cell_config)
         elif self.array_config["col"] <= 256:
             # self.cam_name = 'TCAM' + "_" + str(self.array_config['col'])

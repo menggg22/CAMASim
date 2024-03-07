@@ -6,7 +6,7 @@ from CAMASim.function.quantize import quantize_tensor
 class writeNoise:
     def __init__(self, noise_config: dict) -> None:
         self.config = noise_config
-        self.hasNoise = noise_config["hasWriteNoise"]
+        self.hasNoise = noise_config.get("hasWriteNoise", False)
         if not self.hasNoise:
             return
         self.noiseTypes = noise_config["noiseType"]

@@ -78,8 +78,8 @@ class convertToPhys:
         self.Nmin = None
         self.Nmax = None
 
-        self.VbdMin = conduct2VbdFunc[self.design](self.config["minConductance"])
-        self.VbdMax = conduct2VbdFunc[self.design](self.config["maxConductance"])
+        self.VbdMin = conduct2VbdFunc[self.design](self.config.get("minConductance", 0))
+        self.VbdMax = conduct2VbdFunc[self.design](self.config.get("maxConductance",150))
 
     def write(self, data):
         """
