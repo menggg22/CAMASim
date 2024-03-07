@@ -1,7 +1,7 @@
 # 🛠️ CAMASim
-Content addressable memory (CAM) [wiki](https://en.wikipedia.org/wiki/Content-addressable_memory) stands out as an efficient hardware solution for memory-intensive search operations by supporting parallel computation in memory [](https://ieeexplore.ieee.org/abstract/document/9720562). 
+Content addressable memory (CAM) [wiki](https://en.wikipedia.org/wiki/Content-addressable_memory) stands out as an efficient hardware solution for memory-intensive search operations by supporting parallel computation in memory [intro](https://ieeexplore.ieee.org/abstract/document/9720562). 
 
-CAMASim is a comprehensive simulation framework for evaluating content-addressable memory based acceleratorsin different memory-intensive CAM-compatiable application for both
+CAMASim is a comprehensive simulation framework for evaluating content-addressable memory based accelerators in different memory-intensive CAM-compatiable application for both
 application **accuracy** with hardware constraints and **hardware performance**.
 We provide a Easy-to-use, Modular and Extendible package of simulating CAM-based accelerators. It comes with function simulator and performance evaluator which can be used to easily build custom search schemes. You can use it with any CAM-compatible applications with cam.write() and cam.query().
 
@@ -79,12 +79,14 @@ If you have suggestions or questions on the work, please contact
 [Mengyuan Li](https://menggg22.github.io) (mli22@nd.edu), University of Notre Dame or [Shiyi Liu](andyliu.pub@outlook.com).
 
 
-## EVACAM Integration
+## Further info on EVACAM Integration
 ### What is EVACAM
-Eva-CAM is a circuit/architecture-level modeling and evaluation tool for content addressable memories (CAMs) that can project the area, timing, dynamic energy, and leakage power of NVM-based CAMs. It is developed by Liu Liu at University of Notre Dame. Please go to [EVACAM github repository](https://github.com/eva-cam/EvaCAM) for more detailed information.
+Eva-CAM is a *circuit/architecture-level* modeling and evaluation tool for content addressable memories (CAMs) that can project the area, timing, dynamic energy, and leakage power of NVM-based CAMs. Please go to [EVACAM github repository](https://github.com/eva-cam/EvaCAM) for more detailed information.
 
 ### Why CAMASim and EVACAM can Work Together?
-CAMASim is an chip-level performance and application accuracy simulator while EVACAM gives detailed hardware costs, therefore the two simulators are perfectly  complementary to each other and can work together to give better results. When EVACAM is enabled, CAMASim will pass the CAM configuration it received to EVACAM, and read from EVACAM's performance evaluation on power and latency for whole-chip performance evaluation. If EVACAM is not enabled, CAMASim will read from pre-defined performance data for limited CAM configurations. The pre-defined performance data is stored in `CAMASim/performance/cost_config.json`
+CAMASim is an chip-level performance and application accuracy simulator while EVACAM gives detailed hardware costs, therefore the two simulators are perfectly  complementary to each other and can work together to give better results. When EVACAM is enabled, CAMASim will pass the CAM configuration it received to EVACAM, and read from EVACAM's performance evaluation on power and latency for whole-chip performance evaluation. 
+
+If EVACAM is not enabled, CAMASim will read from user-defined performance data for specific CAM configurations, which should be stored in `CAMASim/performance/cost_config.json`. In the repo, we also provide FeFET-based TCAM and MCAM SPICE simulation results. 
 
 ### How to enable EVACAM?
 EVACAM is integrated as a git submodule within CAMASim to enhance functionality. To align with CAMASim's requirements, we've forked and slightly modified the original EVACAM, with our adapted version available at [this repo](https://github.com/Andyliu92/EvaCAM-for-CAMASim).
