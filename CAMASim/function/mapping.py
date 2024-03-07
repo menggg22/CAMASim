@@ -106,7 +106,7 @@ class mapping:
         for i in range(shape[0]):
             for j in range(self.colCams):
                 self.QueryData[i, j] = padded_input[i, j * self.colSize: (j + 1) * self.colSize]
-        print("--> Mapping the query..., # Query, # COL", shape[0], self.colCams)
+        print("Mapping the query..., # Query, # COL", shape[0], self.colCams, '\n')
 
     def update(self, data):
         """

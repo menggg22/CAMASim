@@ -38,7 +38,8 @@ class ArchEstimator:
         num_mat = self.estimate_size('mat')
         num_bank = self.estimate_size('bank')
 
-        print("--> Arch: #Arrays", num_array, ", #Mats", num_mat, ", #Banks", num_bank)
+        print("Arch config: #Arrays", num_array, ", #Mats", num_mat, ", #Banks", num_bank)
+        print("Estimating arch pheripheral based on majority voting")
 
         array_peripherals = self.estimate_peripherals('array')
         mat_peripherals = self.estimate_peripherals('mat')
