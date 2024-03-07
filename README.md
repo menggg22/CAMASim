@@ -108,4 +108,4 @@ To activate EVACAM's features during simulations in CAMASim, include "useEVACAMC
         "useEVACAMCost": true
     },
 ```
-This setup allows CAMASim to utilize EVACAM's evaluations of latency and power for more accurate simulation outcomes.
+This setup allows CAMASim to utilize EVACAM's evaluations of latency and power for more accurate simulation outcomes. Please note that EVACAM is written in C/C++. Compilation of is needed for the first run of EVACAM. We use `g++` to compile. Please make sure that `g++` is available in your environment.
