@@ -1,4 +1,4 @@
-# The CAMASim class is designed to facilitate operations and performance evaluation of CAM-based accelerators systems.
+# The EvaCAMX class is designed to facilitate operations and performance evaluation of CAM-based accelerators systems.
 # It provides functionalities for both function simulation and performance evaluatiob based on user-defined configurations.
 
 from CAMASim.arch.ArchEstimator import ArchEstimator
@@ -28,7 +28,7 @@ class CAMASim:
 
     def write(self, data):
         # Perform a write operation.
-        print("*** Write Data to CAM Arrays ***")
+        print("*** Write Data to CAM Arrays *** \n")
 
         latency, energy = None, None
 
@@ -43,13 +43,13 @@ class CAMASim:
             self.perf_eval.initialize(cam_arch)
             # Measure latency and energy consumption during write operation
             latency, energy = self.perf_eval.write(data)
-            print("--> Write Latency (ns), Energy (J):", latency, energy)
+            #print("==> Write Latency (ns), Energy (J):", latency, energy)
 
         return latency, energy
 
     def query(self, data):
         # Perform a query operation.
-        print("*** Query CAM Arrays ***")
+        print("*** Query CAM Arrays *** \n")
 
         # Function Simulation
         results, latency, energy = None, None, None
@@ -61,6 +61,6 @@ class CAMASim:
         if self.query_config["PerfEval"] == 1:
             # Measure latency and energy consumption during query operation
             latency, energy = self.perf_eval.query(data)
-            print("--> Query Latency (ps), Energy (J):", latency, energy)
+            print("==> Query Latency (ps), Energy (J):", latency, energy)
 
         return results, latency, energy

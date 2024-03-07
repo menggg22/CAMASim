@@ -98,8 +98,8 @@ class PerformanceEvaluator:
 
         if self.array_config.get("useEVACAMCost", False):
             self.array_cost = get_EVACAM_cost(self.array_config, self.cell_config)
+            print('Extracting circuit cost from EvaCAM \n')
         elif self.array_config["col"] <= 256:
-            # self.cam_name = 'TCAM' + "_" + str(self.array_config['col'])
             if self.array_config["bit"] == 1:
                 self.cam_name = "TCAM" + "_" + str(self.array_config["col"])
             elif self.array_config["bit"] == 2:
@@ -108,7 +108,9 @@ class PerformanceEvaluator:
                 self.cam_name = "MCAM3b" + "_" + str(self.array_config["col"])
             _, array_cost = get_component_cost()
             self.array_cost = array_cost[self.cam_name]
+            print('Extracting circuit cost from user-defined cost_config.json file \n')
         else:
+            print('No EvaCAM Specified or no user-defined cost_config.json \n')
             raise NotImplementedError
 
         assert self.array_cost != None, "invalid array config!"

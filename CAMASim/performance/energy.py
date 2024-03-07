@@ -71,7 +71,7 @@ class EnergyEval:
         print(f" - array energy: {array_energy}J")
         print(f" - peripheral energy: {array_peripheral_energy + mat_peripheral_energy + bank_peripheral_energy}J")
         # print(f" - peripheral energy: {array_peripheral_energy}J")
-        print(f" - interconnect energy: {icnt_energy}J")
+        print(f" - interconnect energy: {icnt_energy}J \n")
         return total_energy
 
     def calculate_write_energy(self):
