@@ -1,15 +1,16 @@
-import sys
 import os
+import sys
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(script_dir)
 sys.path.append(parent_dir)
 
-import numpy as np
-from sklearn import tree
-from typing import Union, Tuple
 import re
 from pathlib import Path
+from typing import Union
+
+import numpy as np
+from sklearn import tree
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(os.path.dirname(script_dir))
@@ -18,7 +19,7 @@ sys.path.append(parent_dir)
 
 class DTLoader:
     def __init__(self, treeTextPath: Path) -> None:
-        with open(treeTextPath, mode="r") as fin:
+        with open(treeTextPath) as fin:
             self.__treeText = fin.read()
 
     def treeText(self):
@@ -68,8 +69,8 @@ class RFLoader:
 
 
 def DT2Array(
-    DT: Union[tree.DecisionTreeClassifier, DTLoader],
-) -> Tuple[np.ndarray, np.ndarray, np.ndarray, float, float]:
+    DT: tree.DecisionTreeClassifier | DTLoader,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, float, float]:
     """
     this function takes a decision tree and
     returns CAMVbdArray, col2featureID, row2classID, sparsity, thresholdMin, thresholdMax
@@ -105,7 +106,7 @@ def DT2Array(
 def __tree2CAMThresholdArray(
     leafNodes: list[dict],
     featureIDs: list[int],
-) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     featureIDs.sort()
     # the meaning of each dimension of the CAMnumArray: row, col, lowerBound/upperBound
     thresholdArray = np.full(
@@ -155,7 +156,7 @@ def __tree2CAMThresholdArray(
 # Parse the tree structure text into a nested dictionary
 def parseTreeStructure(
     text: str,
-) -> Tuple[dict, list[dict], list[int], list[int], list[float]]:
+) -> tuple[dict, list[dict], list[int], list[int], list[float]]:
     """
     this function takes a tree text and returns the parsed tree structure and all leaf nodes, and all feature ids, class ids, and thresholds used in the tree.
     """
@@ -186,12 +187,12 @@ __nodeUID = 0  # add an uid to make each node unique
 def __parseSubTree(
     lines: list[str],
     lineID: int,
-    parentNode: Union[dict, None],
+    parentNode: dict | None,
     leafNodes: list[dict],
     featureIDs: list[int],
     classIDs: list[int],
     thresholds: list[float],
-) -> Tuple[dict, int, list[dict], list[int], list[int], list[float]]:
+) -> tuple[dict, int, list[dict], list[int], list[int], list[float]]:
     """
     this function takes all lines of a tree, the line id where the subtree to be parsed starts, and the pointer to parentNode.
     this function returns the parsed sub tree and the line id where the subtree ends(not the id where the following structure of tree starts!).

@@ -1,9 +1,11 @@
+import pickle
+import random
+
 import numpy as np
 from scipy.optimize import newton
-import pickle
-from CAMASim.function.quantize import quantize_tensor
-import random
+
 from CAMASim.function.convert import conduct2VbdFunc
+from CAMASim.function.quantize import quantize_tensor
 
 __conductVarDataPath = "./data/ACAM_variation_MLcurrent/Gbox.pkl"
 

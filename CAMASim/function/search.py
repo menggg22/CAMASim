@@ -1,7 +1,9 @@
-from CAMASim.function.module.distance import *
-from CAMASim.function.module.sensing import *
-from CAMASim.function.module.merge import *
 from collections import defaultdict
+
+from CAMASim.function.module.distance import *
+from CAMASim.function.module.merge import *
+from CAMASim.function.module.sensing import *
+
 
 class CAMSearch:
     def __init__(self, query_config, array_config):
@@ -118,7 +120,7 @@ class CAMSearch:
         Sensing operation based on the configured sensing method (exact, best, threshold).
         """
 
-       
+
         if self.sensing == 'exact':
             indices, distances = get_array_exact_results(distance_matrix)
         elif self.sensing == 'best':

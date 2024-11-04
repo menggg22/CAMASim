@@ -1,27 +1,26 @@
-import argparse
-import numpy as np
-import sys
-import os
+
 import json
+import os
 import random
+import sys
+import numpy as np
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(os.path.dirname(script_dir))
 sys.path.append(parent_dir)
 
+# Import necessary libraries for decison tree
+from dt2cam import DT2Array
+from sklearn.datasets import load_iris
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
 from CAMASim.CAMASim import CAMASim
 
-# Import necessary libraries for decison tree
-from dt2cam import *
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-
-from sklearn.datasets import load_iris
-
 def load_config():
-    script_path = os.path.abspath(__file__) 
-    script_dir = os.path.split(script_path)[0] 
-    with open(script_dir+ '/cam_config.json', 'r') as f:
+    script_path = os.path.abspath(__file__)
+    script_dir = os.path.split(script_path)[0]
+    with open(script_dir+ '/cam_config.json') as f:
         config = json.load(f)
     return config
 
@@ -47,10 +46,10 @@ def evaluate_accuray(y_test, y_pred):
     # Calculate accuracy
     accuracy = accuracy_score(y_test, y_pred)
     return accuracy
-    
+
 def convert2cam(clf, X_test):
     (
-        thresholdArray, 
+        thresholdArray,
         col2featureID,
         row2classID,
         thresholdMin,
@@ -58,12 +57,12 @@ def convert2cam(clf, X_test):
     ) = DT2Array(clf)
 
     X_feature = X_test[:, col2featureID]
-    
+
     queryArray = np.clip(X_feature, thresholdMin, thresholdMax)
 
     return thresholdArray, queryArray, row2classID
 
-    
+
 def main():
     X_train, X_test, y_train, y_test = load_dataset()
 
@@ -72,7 +71,7 @@ def main():
     clf = DecisionTreeClassifier(random_state=42, max_depth=10)
     clf.fit(X_train, y_train)
 
-    # Prediction (Original) 
+    # Prediction (Original)
     y_pred = clf.predict(X_test)
     accuracy_original = evaluate_accuray(y_test, y_pred)
     print('DT Accuracy (original): ', accuracy_original)

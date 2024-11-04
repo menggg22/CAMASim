@@ -4,8 +4,9 @@ Refer to repository: https://github.com/JKnighten/k-nearest-neighbors
 '''
 
 from math import sqrt
+
 import numpy as np
-import numpy as np
+
 
 ######################
 # Euclidean Distance #
@@ -43,7 +44,7 @@ def euclidean_pairwise(vectors_a, vectors_b):
     num_vectors_a = vectors_a.shape[0]
     num_vectors_b = vectors_b.shape[0]
     num_dims = vectors_a.shape[1]
-    
+
     distances = np.zeros([num_vectors_b, num_vectors_a])
 
     for i in range(num_vectors_b):
@@ -205,7 +206,7 @@ def rangequery(vector_a, vector_b):
     """
     dims = vector_a.shape[0]
     distance = 0
-    
+
     for i in range(dims):
         temp = 0 if (vector_a[i] >= vector_b[i, 0]) & (vector_a[i] <= vector_b[i, 1]) else 1
         distance += temp
@@ -227,7 +228,7 @@ def rangequery_pairwise(vectors_a, vectors_b):
     num_vectors_a = vectors_a.shape[0]
     num_vectors_b = vectors_b.shape[0]
     num_dims = vectors_a.shape[1]
-    
+
     distances = np.zeros([num_vectors_b, num_vectors_a])
 
     for i in range(num_vectors_b):

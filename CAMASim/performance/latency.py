@@ -96,7 +96,7 @@ class LatencyEval:
         )
         print(f'- interconnect latency: {icnt_latency}ps')
 
-        
+
         return total_latency
 
     def estimate_peripheral_latency(self, peripherals):

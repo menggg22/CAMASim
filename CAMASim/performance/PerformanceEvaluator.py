@@ -1,6 +1,6 @@
+from CAMASim.performance.cost import get_component_cost, get_EVACAM_cost
 from CAMASim.performance.energy import EnergyEval
 from CAMASim.performance.latency import LatencyEval
-from CAMASim.performance.cost import get_component_cost, get_EVACAM_cost
 
 
 class PerformanceEvaluator:

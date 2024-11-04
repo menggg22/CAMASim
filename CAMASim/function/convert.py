@@ -1,6 +1,5 @@
+
 import numpy as np
-from typing import Union, Tuple
-import re
 from scipy.optimize import newton
 
 conduct2VbdFunc = {
@@ -48,12 +47,12 @@ def acam_N2V(
 
 
 def num2Vbd(
-    num: Union[float, np.ndarray],
+    num: float | np.ndarray,
     numMin: float,
     numMax: float,
     VbdMin: float,
     VbdMax: float,
-) -> Union[float, np.ndarray]:
+) -> float | np.ndarray:
     assert numMin < numMax and VbdMin < VbdMax
     percentage = (num - numMin) / (numMax - numMin)
     return VbdMin + (VbdMax - VbdMin) * percentage
