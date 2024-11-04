@@ -15,7 +15,10 @@ If you want to learn more info about the simulator, please refer to the followin
 git clone https://github.com/menggg22/CAMASim.git
 ```
 ### Dependencies
-The dependencies required by CAMASim is listed in `requirements.txt`. Please run `pip install -r ./requirements.txt` to install these dependencies.
+The dependencies required for CAMASim are listed in `pyproject.toml`. We use [uv](https://docs.astral.sh/uv/) to manage these dependencies. You can install them by running:
+
+1. `uv sync`
+2. Followed by sourcing the virtual environment with: `. .venv/bin/activate`
 
 ### Run examples
 #### Decision Tree Inference on CAM
