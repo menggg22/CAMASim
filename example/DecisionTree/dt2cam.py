@@ -1,20 +1,8 @@
-import os
-import sys
-
-script_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(script_dir)
-sys.path.append(parent_dir)
-
 import re
 from pathlib import Path
-from typing import Union
 
 import numpy as np
 from sklearn import tree
-
-script_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(os.path.dirname(script_dir))
-sys.path.append(parent_dir)
 
 
 class DTLoader:
@@ -117,7 +105,7 @@ def __tree2CAMThresholdArray(
     for leafNode in leafNodes:
         node = leafNode
         row2classID.append(leafNode["class"])
-        while node["parent"] != None:
+        while node["parent"] is not None:
             parentNode = node["parent"]
             featureID = parentNode["featureID"]
             if parentNode["leNode"] == node:
@@ -216,7 +204,7 @@ def __parseSubTree(
             "threshold": float,
             "leNode": dict,  # less or equal. e.g. feature 3 <= 4
             "gtNode": dict,  # greater than.  e.g. feature 3 >  4
-            "parent": Union[None, dict],
+            "parent": None | dict,
             "uid": __nodeUID,
         }
         __nodeUID += 1
@@ -268,7 +256,7 @@ def __DT2TCAM(DT: tree.DecisionTreeClassifier) -> np.ndarray:
         if app == depth + 1:
             dog.append(-1)
             this_line = [0 for _ in range(DT.n_features_in_)]
-            for index, this_depth in visited:
+            for index, _ in visited:
                 this_line[index] = 1
             # print(visited)
             if len(visited) != 0:

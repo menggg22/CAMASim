@@ -112,9 +112,9 @@ class LatencyEval:
         This method estimates the total peripheral latency based on the given peripherals and their parameters.
         """
         total_latency = 0
-        for peripheral, params in peripherals.items():
-            num = params["num"]
-            size = params["size"]
+        for peripheral, _params in peripherals.items():
+            #num = params["num"]
+            #size = params["size"]
             # latency = self.peripheral_cost[peripheral]["latency"] * size
             latency = self.peripheral_cost[peripheral]["latency"]
             total_latency += latency

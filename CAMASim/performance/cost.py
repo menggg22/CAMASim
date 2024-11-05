@@ -166,7 +166,7 @@ def __update_cost_config() -> dict:
         "run_output.log"
     ).is_file(), "EVACAM output does not exist!"
     with open(workingDir.joinpath("run_output.log")) as fin:
-        for lineID, line in enumerate(fin):
+        for _lineID, line in enumerate(fin):
             line = line.strip()
             assert not re.search(
                 "No valid solutions", line
@@ -177,7 +177,7 @@ def __update_cost_config() -> dict:
                     assert numberWithUnit, "did not got number from the line."
                     number = re.search("[0-9]+.[0-9]+", numberWithUnit.group())
                     number = float(number.group())
-                    assert costs[item]["value"] == None, "double match occurred!"
+                    assert costs[item]["value"] is None, "double match occurred!"
                     costs[item]["value"] = number
                     unit = re.search(
                         costs[item]["unitMatchPattern"], numberWithUnit.group()
@@ -187,7 +187,7 @@ def __update_cost_config() -> dict:
 
     for item in costs.keys():
         assert (
-            costs[item]["value"] != None and costs[item]["unit"] != None
+            costs[item]["value"] is not None and costs[item]["unit"] is not None
         ), f"Failed to extract performance value for {item}."
 
     costs = {
@@ -250,8 +250,8 @@ def __convert2CAMASimFormatCost(cost: dict) -> dict:
 
     for item in convertedCost:
         assert (
-            convertedCost[item]["energy"] != None
-            and convertedCost[item]["latency"] != None
+            convertedCost[item]["energy"] is not None
+            and convertedCost[item]["latency"] is not None
         ), f"item '{item}' has invalid data!"
 
     return convertedCost

@@ -66,5 +66,6 @@ def threshold_merge(matchInd, rowCams, colCams):
     count = Counter(matchInd)
     if colCams == 1:
         results = getKeyEqual(count, colCams)
+        return results
     else:
         raise NotImplementedError  # Functionality for column-wise CAM arrays is not implemented.

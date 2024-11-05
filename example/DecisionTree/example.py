@@ -1,21 +1,16 @@
-
 import json
 import os
 import random
-import sys
+
 import numpy as np
-
-script_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(os.path.dirname(script_dir))
-sys.path.append(parent_dir)
-
-# Import necessary libraries for decison tree
 from dt2cam import DT2Array
 from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+
 from CAMASim.CAMASim import CAMASim
+
 
 def load_config():
     script_path = os.path.abspath(__file__)

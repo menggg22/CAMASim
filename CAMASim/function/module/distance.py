@@ -12,7 +12,7 @@ import numpy as np
 # Euclidean Distance #
 ######################
 def euclidean(vector_a, vector_b):
-    """ 
+    """
     Finds the euclidean distance between two vectors.
     Args:
             vector_a (ndarray): the first 1D array must be of type np.float
@@ -31,7 +31,7 @@ def euclidean(vector_a, vector_b):
 
 
 def euclidean_pairwise(vectors_a, vectors_b):
-    """ 
+    """
     Finds the euclidean distance between all pairs of vectors in the two supplied matrices.
     Args:
         vectors_a (ndarray): the first 2D array of vectors must be of type np.float
@@ -62,7 +62,7 @@ def euclidean_pairwise(vectors_a, vectors_b):
 # Manhattan Distance #
 ######################
 def manhattan(vector_a, vector_b):
-    """ 
+    """
     Finds the manhattan (l1) distance between two vectors.
     Args:
             vector_a (ndarray): the first 1D array must be of type np.float
@@ -80,7 +80,7 @@ def manhattan(vector_a, vector_b):
     return distance
 
 def manhattan_pairwise(vectors_a, vectors_b):
-    """ 
+    """
     Finds the manhattan distance between all pairs of vectors in the two supplied matrices.
     Args:
         vectors_a (ndarray): the first 2D array of vectors must be of type np.float
@@ -106,7 +106,7 @@ def manhattan_pairwise(vectors_a, vectors_b):
 # Hamming Distance #
 ####################
 def hamming(vector_a, vector_b):
-    """ 
+    """
     Finds the hamming between two vectors.
     Args:
             vector_a (ndarray): the first 1D array must be of type np.float
@@ -116,7 +116,7 @@ def hamming(vector_a, vector_b):
             (np.float): the hamming distance between the two supplied vectors.
     """
     dims = vector_a.shape[0]
-
+    distance = 0
     for i in range(dims):
         if vector_a[i] != vector_b[i]:
             distance += 1.0
@@ -124,7 +124,7 @@ def hamming(vector_a, vector_b):
 
 
 def hamming_pairwise(vectors_a, vectors_b):
-    """ 
+    """
     Finds the hamming distance between all pairs of vectors in the two supplied matrices.
     Args:
         vectors_a (ndarray): the first 2D array of vectors must be of type np.float
@@ -151,7 +151,7 @@ def hamming_pairwise(vectors_a, vectors_b):
 # Inner Product Distance #
 ##########################
 def innerproduct(vector_a, vector_b):
-    """ 
+    """
     Finds the inner product between two vectors.
     Args:
             vector_a (ndarray): the first 1D array must be of type np.float
@@ -163,11 +163,11 @@ def innerproduct(vector_a, vector_b):
     dims = vector_a.shape[0]
     distance = 0
     for i in range(dims):
-        distance += (vectors_a[i]*vectors_b[i])
+        distance += (vector_a[i]*vector_b[i])
     return distance
 
 def innerproduct_pairwise(vectors_a, vectors_b):
-    """ 
+    """
     Finds the IP distance between all pairs of vectors in the two supplied matrices.
     Args:
         vectors_a (ndarray): the first 2D array of vectors must be of type np.float
@@ -195,7 +195,7 @@ def innerproduct_pairwise(vectors_a, vectors_b):
 # Range query #
 ######################
 def rangequery(vector_a, vector_b):
-    """ 
+    """
     Finds the range query between two vectors.
     Args:
             vector_a (ndarray): the first 1D array must be of type np.float
@@ -215,7 +215,7 @@ def rangequery(vector_a, vector_b):
 
 
 def rangequery_pairwise(vectors_a, vectors_b):
-    """ 
+    """
     Finds the range query between all pairs of vectors in the two supplied matrices.
     Args:
         vectors_a (ndarray): the first D array of vectors must be of type np.float

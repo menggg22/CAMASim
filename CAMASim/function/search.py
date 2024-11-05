@@ -1,8 +1,19 @@
 from collections import defaultdict
 
-from CAMASim.function.module.distance import *
-from CAMASim.function.module.merge import *
-from CAMASim.function.module.sensing import *
+from CAMASim.function.module.distance import (
+    euclidean_pairwise,
+    hamming_pairwise,
+    innerproduct_pairwise,
+    manhattan_pairwise,
+    rangequery_pairwise,
+)
+from CAMASim.function.module.merge import exact_merge, knn_merge, threshold_merge
+from CAMASim.function.module.sensing import (
+    get_array_best_results,
+    get_array_best_results_sensing,
+    get_array_exact_results,
+    get_array_threshold_results,
+)
 
 
 class CAMSearch:

@@ -150,8 +150,8 @@ class convertToPhys:
 
         # Solving transcendental equations using the bisection approximation
         guessX = 1
-        maxIterations = 10000
-        tolerance = 1e-9
+        #maxIterations = 10000 #TODO: REMOVE
+        #tolerance = 1e-9
         for i in range(VbdArray.shape[0]):
             for j in range(VbdArray.shape[1]):
                 if len(VbdArray.shape) == 2:  # TCAM

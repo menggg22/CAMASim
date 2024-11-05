@@ -113,7 +113,7 @@ class PerformanceEvaluator:
             print('No EvaCAM Specified or no user-defined cost_config.json \n')
             raise NotImplementedError
 
-        assert self.array_cost != None, "invalid array config!"
+        assert self.array_cost is not None, "invalid array config!"
 
     def extract_arch_peripherals(self):
         """

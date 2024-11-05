@@ -16,7 +16,7 @@ def addVbdQuantVar(VbdArray: np.ndarray, cellType='6T2M') -> np.ndarray:
     """
     raise DeprecationWarning("This function is deprecated after using a global config.")
     conductArray = Vbd2conduct(VbdArray, cellType)
-    if __configAddQuant:
+    if False: # __configAddQuant
         conductArray = __addConductQuantVar(conductArray)
     else:
         conductArray = addConduDependentVar(conductArray)
