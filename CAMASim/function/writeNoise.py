@@ -1,5 +1,6 @@
-import CAMASim.function.module.rram_noise as rram_noise
 import numpy as np
+
+import CAMASim.function.module.rram_noise as rram_noise
 from CAMASim.function.quantize import quantize_tensor
 
 

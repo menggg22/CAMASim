@@ -1,6 +1,5 @@
+
 import numpy as np
-from typing import Union, Tuple
-import re
 from scipy.optimize import newton
 
 conduct2VbdFunc = {
@@ -48,12 +47,12 @@ def acam_N2V(
 
 
 def num2Vbd(
-    num: Union[float, np.ndarray],
+    num: float | np.ndarray,
     numMin: float,
     numMax: float,
     VbdMin: float,
     VbdMax: float,
-) -> Union[float, np.ndarray]:
+) -> float | np.ndarray:
     assert numMin < numMax and VbdMin < VbdMax
     percentage = (num - numMin) / (numMax - numMin)
     return VbdMin + (VbdMax - VbdMin) * percentage
@@ -151,8 +150,8 @@ class convertToPhys:
 
         # Solving transcendental equations using the bisection approximation
         guessX = 1
-        maxIterations = 10000
-        tolerance = 1e-9
+        #maxIterations = 10000 #TODO: REMOVE
+        #tolerance = 1e-9
         for i in range(VbdArray.shape[0]):
             for j in range(VbdArray.shape[1]):
                 if len(VbdArray.shape) == 2:  # TCAM

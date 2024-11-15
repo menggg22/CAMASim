@@ -1,5 +1,6 @@
 import math
 
+
 class ArchEstimator:
     def __init__(self, arch_config, array_config):
         """

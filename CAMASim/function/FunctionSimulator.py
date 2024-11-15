@@ -1,11 +1,9 @@
-import numpy as np
-import math
-from collections import Counter, defaultdict
-from CAMASim.function.quantize import quantize
 from CAMASim.function.convert import convertToPhys
 from CAMASim.function.mapping import mapping
+from CAMASim.function.quantize import quantize
 from CAMASim.function.search import CAMSearch
 from CAMASim.function.writeNoise import writeNoise
+
 
 class FunctionSimulator:
     def __init__(self, array_config, query_config, cell_config, noise_config):
@@ -23,7 +21,7 @@ class FunctionSimulator:
         self.query_config = query_config
         self.cell_config = cell_config
         self.noise_config = noise_config
-        
+
         self.quantizer = quantize(query_config)
         self.converter = convertToPhys(cell_config)
         self.mapping = mapping(cam_size=None, map_rule=None, array_config=array_config)
@@ -42,7 +40,7 @@ class FunctionSimulator:
         # 1. Quantization (optional for ACAM)
         if self.array_config['cell'] != 'ACAM':
             data = self.quantizer.write(data)
-        
+
         # 2. Conversion to voltage/conductance representation
         data = self.converter.write(data)
 
@@ -64,13 +62,13 @@ class FunctionSimulator:
         # 1. Quantization (optional for ACAM)
         if self.array_config['cell'] != 'ACAM':
             input = self.quantizer.query(input)
-        
+
         # 2. Conversion to the same representation
-        input = self.converter.query(input) 
+        input = self.converter.query(input)
 
         # 3. Data mapping to CAM arrays for queries
         self.mapping.query(input)
-        
+
         # 4. Searching in each array and merging results
         self.search.define_search_area(self.mapping.rowCams, self.mapping.colCams)
         results = self.search.search(self.mapping.CamData, self.mapping.QueryData)

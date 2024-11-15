@@ -1,9 +1,11 @@
+import pickle
+import random
+
 import numpy as np
 from scipy.optimize import newton
-import pickle
-from CAMASim.function.quantize import quantize_tensor
-import random
+
 from CAMASim.function.convert import conduct2VbdFunc
+from CAMASim.function.quantize import quantize_tensor
 
 __conductVarDataPath = "./data/ACAM_variation_MLcurrent/Gbox.pkl"
 
@@ -14,7 +16,7 @@ def addVbdQuantVar(VbdArray: np.ndarray, cellType='6T2M') -> np.ndarray:
     """
     raise DeprecationWarning("This function is deprecated after using a global config.")
     conductArray = Vbd2conduct(VbdArray, cellType)
-    if __configAddQuant:
+    if False: # __configAddQuant
         conductArray = __addConductQuantVar(conductArray)
     else:
         conductArray = addConduDependentVar(conductArray)

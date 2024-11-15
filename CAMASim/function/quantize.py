@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def calcScaleZeroPoint(min_val, max_val, num_bits=8):
     # Calculate the scale and zero point for quantization.
     qmin = 0.
@@ -57,7 +58,7 @@ class quantize:
 
             if has_nan:
                 self.min_val = np.nanmin(data)
-                self.max_val = np.nanmax(data)               
+                self.max_val = np.nanmax(data)
             else:
                 # Find the minimum and maximum values
                 self.min_val = np.min(data)
@@ -66,7 +67,7 @@ class quantize:
         q_data, _, _ = quantize_tensor(data, num_bits=self.num_bits, min_val=self.min_val, max_val=self.max_val)
 
         return q_data
-    
+
     def query(self, data):
         # Quantize and return the quantized data for a query operation.
 

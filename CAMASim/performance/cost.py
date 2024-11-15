@@ -1,8 +1,8 @@
-import os
 import json
-from pathlib import Path
-import re
 import math
+import os
+import re
+from pathlib import Path
 
 """
 The File will connect to EvaCAM tool
@@ -11,7 +11,7 @@ The File will connect to EvaCAM tool
 def get_component_cost():
     script_path = os.path.abspath(__file__)
     script_dir = os.path.split(script_path)[0]
-    with open(script_dir + "/cost_config.json", "r") as f:
+    with open(script_dir + "/cost_config.json") as f:
         config = json.load(f)
     peripheral_cost = config["peripheral_cost"]
     array_cost = config["array_cost"]
@@ -62,7 +62,7 @@ def get_EVACAM_cost(array_config: dict, cell_config: dict):
 def __modify_EvaCAM_config(
     array_config: dict, cell_config: dict, evacam_config_path: Path
 ):
-    with open(evacam_config_path, mode="r") as cfgFile:
+    with open(evacam_config_path) as cfgFile:
         cfgLines = cfgFile.readlines()
 
     modifiedItem = {
@@ -165,8 +165,8 @@ def __update_cost_config() -> dict:
     assert workingDir.joinpath(
         "run_output.log"
     ).is_file(), "EVACAM output does not exist!"
-    with open(workingDir.joinpath("run_output.log"), mode="r") as fin:
-        for lineID, line in enumerate(fin):
+    with open(workingDir.joinpath("run_output.log")) as fin:
+        for _lineID, line in enumerate(fin):
             line = line.strip()
             assert not re.search(
                 "No valid solutions", line
@@ -177,7 +177,7 @@ def __update_cost_config() -> dict:
                     assert numberWithUnit, "did not got number from the line."
                     number = re.search("[0-9]+.[0-9]+", numberWithUnit.group())
                     number = float(number.group())
-                    assert costs[item]["value"] == None, "double match occurred!"
+                    assert costs[item]["value"] is None, "double match occurred!"
                     costs[item]["value"] = number
                     unit = re.search(
                         costs[item]["unitMatchPattern"], numberWithUnit.group()
@@ -187,7 +187,7 @@ def __update_cost_config() -> dict:
 
     for item in costs.keys():
         assert (
-            costs[item]["value"] != None and costs[item]["unit"] != None
+            costs[item]["value"] is not None and costs[item]["unit"] is not None
         ), f"Failed to extract performance value for {item}."
 
     costs = {
@@ -250,8 +250,8 @@ def __convert2CAMASimFormatCost(cost: dict) -> dict:
 
     for item in convertedCost:
         assert (
-            convertedCost[item]["energy"] != None
-            and convertedCost[item]["latency"] != None
+            convertedCost[item]["energy"] is not None
+            and convertedCost[item]["latency"] is not None
         ), f"item '{item}' has invalid data!"
 
     return convertedCost
@@ -260,7 +260,7 @@ def __convert2CAMASimFormatCost(cost: dict) -> dict:
 def __test_get_EVACAM_cost():
     import yaml
 
-    with open("test/cam_config.yml", mode="r") as fin:
+    with open("test/cam_config.yml") as fin:
         config = yaml.load(fin, Loader=yaml.FullLoader)
 
     get_EVACAM_cost(config["array"], config["cell"])

@@ -1,6 +1,6 @@
+from CAMASim.performance.cost import get_component_cost, get_EVACAM_cost
 from CAMASim.performance.energy import EnergyEval
 from CAMASim.performance.latency import LatencyEval
-from CAMASim.performance.cost import get_component_cost, get_EVACAM_cost
 
 
 class PerformanceEvaluator:
@@ -113,7 +113,7 @@ class PerformanceEvaluator:
             print('No EvaCAM Specified or no user-defined cost_config.json \n')
             raise NotImplementedError
 
-        assert self.array_cost != None, "invalid array config!"
+        assert self.array_cost is not None, "invalid array config!"
 
     def extract_arch_peripherals(self):
         """

@@ -1,5 +1,7 @@
-import numpy as np
 import math
+
+import numpy as np
+
 
 class mapping:
     def __init__(self, cam_size, map_rule, array_config):
